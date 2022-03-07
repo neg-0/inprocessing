@@ -48,6 +48,7 @@ export default function ChecklistItem({ item, markAsComplete }) {
             <Box sx={{ width: 300, mx: "auto", textAlign: "center" }}>
               <Button
                 fullWidth
+                sx={{ my: 1 }}
                 variant={item.completed ? "outlined" : "contained"}
                 color={item.completed ? "incomplete" : "complete"}
                 onClick={() => markAsComplete(item.id)}
@@ -57,7 +58,7 @@ export default function ChecklistItem({ item, markAsComplete }) {
               {item.completed && (
                 <Typography variant="body">
                   Completed on{" "}
-                  {formatDate(item.completionDate, "MM/dd/yyyy 'at' h:m:s")}
+                  {formatDate(item.completionDate, "MM/dd/yyyy 'at' hh:mm:ss")}
                 </Typography>
               )}
             </Box>
