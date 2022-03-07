@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import * as React from "react";
 import "./App.css";
@@ -24,6 +24,9 @@ function App() {
       <Box sx={{ m: 4 }}>
         <Heading header={header} updateHeader={updateHeader} />
       </Box>
+      <Typography variant="h6" textAlign={"center"}>
+        Note: You must be in uniform for all your appointments.
+      </Typography>
       <Box sx={{ m: 4 }}>
         <ChecklistContainer />
       </Box>
