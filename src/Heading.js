@@ -10,22 +10,22 @@ export default function Heading({ header, updateHeader }) {
 
   return (
     <Grid container spacing={2}>
-      <Grid item xs={12} md={4}>
-        <FormControl fullWidth>
-          <TextField
-            id="header-rank"
-            label="Rank"
-            value={header["Rank"]}
-            onChange={handleChange}
-          />
-        </FormControl>
-      </Grid>
       <Grid item xs={12} md={8}>
         <FormControl fullWidth>
           <TextField
             id="header-name"
             label="Name"
             value={header["Name"]}
+            onChange={handleChange}
+          />
+        </FormControl>
+      </Grid>
+      <Grid item xs={12} md={4}>
+        <FormControl fullWidth>
+          <TextField
+            id="header-rank"
+            label="Rank"
+            value={header["Rank"]}
             onChange={handleChange}
           />
         </FormControl>
