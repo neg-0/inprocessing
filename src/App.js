@@ -58,7 +58,7 @@ function App() {
           </Paper>
           <Alert
             severity="info"
-            sx={{ width: "350px", mx: "auto", backgroundColor: "daf0ff" }}
+            sx={{ width: "400px", mx: "auto", backgroundColor: "daf0ff" }}
           >
             You must be in uniform for all your appointments.
           </Alert>
