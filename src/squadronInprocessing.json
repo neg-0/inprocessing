@@ -1,0 +1,50 @@
+[
+  {
+    "id": 4,
+    "title": "Cyber Security Liaison Forms",
+    "content": "Complete forms AF2875, AF4394, and Rules of Behavior & Acceptable Use. Return completed forms to Ms. Yasmine Redmond",
+    "Additional Fields": {
+      "POC": "Ms. Yasmine Redmond",
+      "Phone": "853-9988",
+      "Location": "Bldg 1645, Front Office",
+      "Email": "yasmine.redmond@us.af.mil",
+      "MatterMost": "yasmine13redmond",
+      "Office Hours": "M-F 0830-1530"
+    }
+  },
+  {
+    "id": 5,
+    "title": "Cyber Security Liaison Folder Access",
+    "content": "Contact Flight Chief/Commander to request shared drive folder access",
+    "Additional Fields": {
+      "POC": "Flight Chief/Commander"
+    }
+  },
+  {
+    "id": 6,
+    "title": "Security Manager/Platform 1",
+    "content": "Set up appointment with the Security Manager for squadron onboarding.",
+    "Additional Fields": {
+      "POC": "Ms. Kristine Villarreal",
+      "Phone": "853-4711",
+      "Location": "Bldg 1645, Third Floor, Room 301",
+      "Email": "yasmine.redmond@us.af.mil",
+      "MatterMost": "yasmine13redmond",
+      "Office Hours": "M-F 0830-1530"
+    }
+  },
+  {
+    "id": 7,
+    "title": "IDA Worksheet",
+    "content": "Meet with Ms. Sharron Little for IDA Worksheet",
+    "Additional Fields": {
+      "POC": "Ms. Sharon Little",
+      "Phone": "853-8842",
+      "Location": "Bldg 1645, First Floor, Room 123",
+      "Email": "sharon.little@us.af.mil",
+      "MatterMost": "dungeon_master",
+
+      "Office Hours": "M-F 0830-1530"
+    }
+  }
+]
