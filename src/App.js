@@ -1,12 +1,15 @@
-import { Box, Typography, Paper, Alert } from "@mui/material";
+import { Alert, Box, Paper, Toolbar } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
 import { useReducer, useState } from "react";
 import "./App.css";
 import baseInprocessing from "./baseInprocessing.json";
 import ChecklistContainer from "./ChecklistContainer";
 import Heading from "./Heading";
+import MenuDrawer from "./MenuDrawer";
 import squadronInprocessing from "./squadronInprocessing.json";
 import { theme } from "./Theme";
+
+const drawerWidth = 240;
 
 function completionReducer(state, action) {
   switch (action.setCompleted) {
@@ -37,30 +40,42 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Paper sx={{ m: 4, p: 2, backgroundColor: "#daf0ff" }} elevation={5}>
-        <Heading header={header} updateHeader={updateHeader} />
-      </Paper>
-      <Alert
-        severity="info"
-        sx={{ width: "350px", mx: "auto", backgroundColor: "daf0ff" }}
-      >
-        You must be in uniform for all your appointments.
-      </Alert>
-      <Box sx={{ m: 4 }}>
-        <ChecklistContainer
-          header="Base"
-          checklistItems={baseInprocessing}
-          completedItems={completedItems}
-          updateCompletion={updateCompletion}
-        />
-      </Box>
-      <Box sx={{ m: 4 }}>
-        <ChecklistContainer
-          header="Squadron"
-          checklistItems={squadronInprocessing}
-          completedItems={completedItems}
-          updateCompletion={updateCompletion}
-        />
+      <Box sx={{ display: "flex" }}>
+        <MenuDrawer drawerWidth={drawerWidth} />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+            width: { xs: "100%", sm: `calc(100% - ${drawerWidth}px)` },
+          }}
+        >
+          <Toolbar />
+
+          <Paper sx={{ m: 4, p: 2, backgroundColor: "#daf0ff" }} elevation={5}>
+            <Heading header={header} updateHeader={updateHeader} />
+          </Paper>
+          <Alert
+            severity="info"
+            sx={{ width: "350px", mx: "auto", backgroundColor: "daf0ff" }}
+          >
+            You must be in uniform for all your appointments.
+          </Alert>
+          <Box sx={{ m: 4 }}>
+            <ChecklistContainer
+              header="Base"
+              checklistItems={baseInprocessing}
+              completedItems={completedItems}
+              updateCompletion={updateCompletion}
+            />
+            <ChecklistContainer
+              header="Squadron"
+              checklistItems={squadronInprocessing}
+              completedItems={completedItems}
+              updateCompletion={updateCompletion}
+            />
+          </Box>
+        </Box>
       </Box>
     </ThemeProvider>
   );
