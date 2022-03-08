@@ -3,7 +3,6 @@
     "id": 1,
     "title": "File Travel Voucher",
     "content": "Log on to PCS In-Processing System (PIPS) at https://efinanceworkspace.wpafb.mil to file your travel voucher and other financial processing. Please complete the following steps to ensure prompt payment of your PCS voucher and avoid deliquency. Once the network account is created, visit the PIPS website and file your PCS voucher.",
-    "completed": false,
     "Additional Fields": {
       "POC": "45 CPTS/FMF - PIPS Info ONLY",
       "Phone": "854-4882",
@@ -16,7 +15,6 @@
     "id": 2,
     "title": "Sign up for Newcomer's Orientation and Tour",
     "content": "You have a mandatory appointment to attend the Patrick SFB & CCSFS, Newcomer's Orientation and Tour scheduled for 0715hrs. The Commander's Support Staff will schedule the member for Newcomers.",
-    "completed": false,
     "Additional Fields": {
       "POC": "Ms. Sharon Little",
       "Phone": "xxx-xxxx",
@@ -29,7 +27,6 @@
     "id": 3,
     "title": "Child Care",
     "content": "Child Care is available via the Child Care for PCS Program. Call the A&FRC ASAP @ 494-5675 for aa certificate. Every third Tuesday of the month. Call 45 FSS/FSMPS (494-2130) to reschedule if needed.",
-    "completed": false,
     "Additional Fields": {
       "POC": "Airman & Family Readiness Center",
       "Phone": "494-5675",

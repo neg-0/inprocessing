@@ -5,14 +5,25 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import Typography from "@mui/material/Typography";
 import { format as formatDate } from "date-fns";
+import { useCallback } from "react";
 
-export default function ChecklistItem({ item, markAsComplete }) {
+export default function ChecklistItem({
+  item,
+  completedItems,
+  updateCompletion,
+}) {
+  const isItemCompleted = useCallback(() => {
+    return Object.keys(completedItems).includes(`${item.id}`);
+  }, [item, completedItems]);
+
   return (
     <Box sx={{ my: 2 }}>
-      <Box className={"Checklist-item" + (item.completed ? "-completed" : "")}>
+      <Box
+        className={"Checklist-item" + (isItemCompleted() ? "-completed" : "")}
+      >
         <Accordion
           sx={{
-            backgroundColor: item.completed ? "#66d688" : "#d6d6e1",
+            backgroundColor: isItemCompleted() ? "#66d688" : "#d6d6e1",
             borderRadius: "12px",
           }}
           square
@@ -49,16 +60,24 @@ export default function ChecklistItem({ item, markAsComplete }) {
               <Button
                 fullWidth
                 sx={{ my: 1 }}
-                variant={item.completed ? "outlined" : "contained"}
-                color={item.completed ? "incomplete" : "complete"}
-                onClick={() => markAsComplete(item.id)}
+                variant={isItemCompleted() ? "outlined" : "contained"}
+                color={isItemCompleted() ? "incomplete" : "complete"}
+                onClick={() =>
+                  updateCompletion({
+                    id: item.id,
+                    setCompleted: !isItemCompleted(),
+                  })
+                }
               >
-                Mark as {item.completed ? "Incomplete" : "Complete"}
+                Mark as {isItemCompleted() ? "Incomplete" : "Complete"}
               </Button>
-              {item.completed && (
+              {isItemCompleted() && (
                 <Typography variant="body">
                   Completed on{" "}
-                  {formatDate(item.completionDate, "MM/dd/yyyy 'at' hh:mm:ss")}
+                  {formatDate(
+                    completedItems[item.id],
+                    "MM/dd/yyyy 'at' hh:mm:ss"
+                  )}
                 </Typography>
               )}
             </Box>

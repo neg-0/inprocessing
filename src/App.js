@@ -1,15 +1,29 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Paper, Alert } from "@mui/material";
 import { ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
+import { useReducer, useState } from "react";
 import "./App.css";
+import baseInprocessing from "./baseInprocessing.json";
 import ChecklistContainer from "./ChecklistContainer";
 import Heading from "./Heading";
+import squadronInprocessing from "./squadronInprocessing.json";
 import { theme } from "./Theme";
-import inprocessingItems from "./baseInprocessing.json";
+
+function completionReducer(state, action) {
+  switch (action.setCompleted) {
+    case true:
+      return { ...state, [action.id]: new Date() };
+    case false:
+      let newState = { ...state };
+      delete newState[action.id];
+      return newState;
+    default:
+      throw new Error();
+  }
+}
 
 function App() {
   const [header, setHeader] = useState({});
-  const [items, setItems] = useState(inprocessingItems);
+  const [completedItems, updateCompletion] = useReducer(completionReducer, {});
 
   function updateHeader(field, value) {
     const newHeader = { ...header };
@@ -21,42 +35,31 @@ function App() {
     setHeader(newHeader);
   }
 
-  function markAsComplete(id) {
-    const newItems = [...items];
-    let index = newItems.findIndex((item) => item.id === id);
-    if (index > -1) {
-      const completed = newItems[index].completed;
-
-      if (completed) {
-        newItems[index].completed = false;
-      } else {
-        newItems[index].completed = true;
-        newItems[index].completionDate = new Date();
-      }
-    }
-    setItems(newItems);
-  }
-
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{ m: 4 }}>
+      <Paper sx={{ m: 4, p: 2, backgroundColor: "#daf0ff" }} elevation={5}>
         <Heading header={header} updateHeader={updateHeader} />
-      </Box>
-      <Typography variant="h6" textAlign={"center"}>
-        Note: You must be in uniform for all your appointments.
-      </Typography>
+      </Paper>
+      <Alert
+        severity="info"
+        sx={{ width: "350px", mx: "auto", backgroundColor: "daf0ff" }}
+      >
+        You must be in uniform for all your appointments.
+      </Alert>
       <Box sx={{ m: 4 }}>
         <ChecklistContainer
-          header="Base In-Processing"
-          checklistItems={inprocessingItems}
-          markAsComplete={markAsComplete}
+          header="Base"
+          checklistItems={baseInprocessing}
+          completedItems={completedItems}
+          updateCompletion={updateCompletion}
         />
       </Box>
       <Box sx={{ m: 4 }}>
         <ChecklistContainer
-          header="Base In-Processing"
-          checklistItems={inprocessingItems}
-          markAsComplete={markAsComplete}
+          header="Squadron"
+          checklistItems={squadronInprocessing}
+          completedItems={completedItems}
+          updateCompletion={updateCompletion}
         />
       </Box>
     </ThemeProvider>

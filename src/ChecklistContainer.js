@@ -1,10 +1,12 @@
 import { Box, Typography } from "@mui/material";
+import { useCallback } from "react";
 import ChecklistItem from "./ChecklistItem";
 
 export default function ChecklistContainer({
   header,
   checklistItems,
-  markAsComplete,
+  completedItems,
+  updateCompletion,
 }) {
   return (
     <Box className="csstransforms">
@@ -17,7 +19,8 @@ export default function ChecklistContainer({
             <ChecklistItem
               key={index}
               item={item}
-              markAsComplete={markAsComplete}
+              completedItems={completedItems}
+              updateCompletion={updateCompletion}
             />
           ))}
         </Box>
