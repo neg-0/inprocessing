@@ -17,7 +17,7 @@ aside h3 {
 
 /* Class name via Modernizr */
 .csstransforms aside {
-  border-left: 34px solid #369;
+  border-left: 34px solid rgb(21, 63, 104);
   padding-left: 10px;
 }
 .csstransforms aside h3 {
@@ -53,5 +53,5 @@ aside h3 {
 }
 
 body {
-  background-color: #d6d6e1;
+  background-color: #82b2d4;
 }
