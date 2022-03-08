@@ -8,6 +8,7 @@ import Heading from "./Heading";
 import MenuDrawer from "./MenuDrawer";
 import squadronInprocessing from "./squadronInprocessing.json";
 import { theme } from "./Theme";
+import flightInprocessing from "./flightInprocessing.json";
 
 const drawerWidth = 240;
 
@@ -71,6 +72,12 @@ function App() {
             <ChecklistContainer
               header="Squadron"
               checklistItems={squadronInprocessing}
+              completedItems={completedItems}
+              updateCompletion={updateCompletion}
+            />
+            <ChecklistContainer
+              header="Flight"
+              checklistItems={flightInprocessing}
               completedItems={completedItems}
               updateCompletion={updateCompletion}
             />
