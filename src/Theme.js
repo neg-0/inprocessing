@@ -14,4 +14,14 @@ export const theme = createTheme({
       contrastText: "#fff",
     },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        outlined: {
+          backgroundColor: "#00000020",
+          color: "#800",
+        },
+      },
+    },
+  },
 });
